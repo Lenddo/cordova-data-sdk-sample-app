@@ -18,7 +18,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      Lenddo.setInstance('55e01d35aa96122b9a8dd197', 'xskK9oro19LZ1aHawIa9JDY8cNxaGnMae1IV4ttrPzT3IJN7hpzF0tNAIqTEWB/OHSileJbsmdK4vNF/X/1FEQ==');
+      Lenddo.setInstance('PARTNER_SCRIPT_ID', 'SECRET');
     });
   }
 }

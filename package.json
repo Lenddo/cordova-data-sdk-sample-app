@@ -37,7 +37,7 @@
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.18",
-    "cordova-plugin-lenddo": "/home/jedld/workspace/cordova-plugin-lenddo"
+    "cordova-plugin-lenddo": "../cordova-plugin-lenddo"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.2",

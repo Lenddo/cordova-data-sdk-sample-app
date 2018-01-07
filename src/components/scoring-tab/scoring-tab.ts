@@ -1,6 +1,5 @@
-import { InstallationInformation } from './../../../plugins/cordova-plugin-lenddo/lib/index';
 import { Component, ViewChild } from '@angular/core';
-import { Lenddo, ClientOptions } from 'cordova-plugin-lenddo';
+import { Lenddo, ClientOptions,  DataSendingCallback, InstallationInformation} from 'cordova-plugin-lenddo';
 import { Platform } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
@@ -14,7 +13,7 @@ import { ToastController } from 'ionic-angular';
   selector: 'scoring-tab',
   templateUrl: 'scoring-tab.html'
 })
-export class ScoringTabComponent {
+export class ScoringTabComponent implements DataSendingCallback {
   @ViewChild('uid') applicationIdField ;
   service: Lenddo
 
@@ -83,10 +82,11 @@ export class ScoringTabComponent {
         self.currentInstallationId = info.installationId;
         self.currentServiceToken = info.serviceToken;
         self.currentDeviceId = info.deviceId;
-        if (self.dataMode == "wifi_and_mobile") {
+
+        if (self.dataMode === "wifi_only") {
+          self.uploadMode = "Wifi Only"
+        } else {
           self.uploadMode = "Wifi + Mobile"
-        } else if (self.dataMode == "wifi_only") {
-          self.uploadMode == "Wifi Only"
         }
         self.dataSendingCallback = "Success";
       });
@@ -100,6 +100,9 @@ export class ScoringTabComponent {
       toast.present();
       self.disableStartButton = true;
       self.stopButtonEnabled = true;
+      
+      self.service.setDataSendingCompleteCallback(self); //register global error handlers for data sending
+
       self.service.setup(this.setupOptions()).then(()=> {
         self.hasStatistics = true;
         self.dataSendingCallback = "process currently running";
@@ -113,7 +116,7 @@ export class ScoringTabComponent {
           })
       }).catch((message) => { 
         toast.dismiss();
-        self.dataSendingCallback = "Failed: " + message.message;
+        self.dataSendingCallback = "Failed";
         self.toastCtrl.create({ message: "Error: " + message.message, showCloseButton: true }).present();
         self.disableStartButton = false
       });
@@ -123,15 +126,30 @@ export class ScoringTabComponent {
     }
   }
 
+  onDataSendingSuccess(result) {
+    this.populateInfo(true);
+  }
+
+  onDataSendingError(result) {
+    console.log("error: " + result);
+  }
+
   clearLenddo() {
     this.service.clear();
     this.hasStatistics = false; this.populateInfo(false);
     this.stopButtonEnabled = false;
     this.disableStartButton = false;
+    this.currentApplicationId = "";
+    this.currentInstallationId = "";
+    this.currentServiceToken = "";
+    this.currentDeviceId = "";
+    this.uploadMode = "";
+    this.dataSendingCallback = "";
   }
 
   private setupOptions(): ClientOptions {
     let options = new ClientOptions;
+
     if (this.dataMode === 'wifi_and_mobile') {
       options.setWifiOnly(true);
     } else {
