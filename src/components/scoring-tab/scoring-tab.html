@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Scoring</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Application ID</ion-label>
+      <ion-input [(ngModel)]="applicationId" #uid></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+        Settings
+    </ion-list-header>
+    <ion-item>
+      <ion-select [(ngModel)]="apiGatewayUrl">
+        <ion-option value="https://gateway.partner-service.link">https://gateway.partner-service.link</ion-option>
+        <ion-option value="https://gateway-kr.partner-service.link">https://gateway-kr.partner-service.link</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select [(ngModel)]="dataMode">
+        <ion-option value="wifi_and_mobile">Wifi + Mobile</ion-option>
+        <ion-option value="wifi_only">Wifi Only</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Enable Debug Logs</ion-label>
+      <ion-checkbox [(ngModel)]="enableLog"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+        Data Type
+    </ion-list-header>
+    <ion-item>
+        <ion-label>Enable SMS data collection</ion-label>
+        <ion-checkbox [(ngModel)]="enableSMS"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Enable Call Logs data collection</ion-label>
+        <ion-checkbox [(ngModel)]="enableCallLogs"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Enable Contacts data collection</ion-label>
+        <ion-checkbox [(ngModel)]="enableContacts"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Enable Calendar Events data collection</ion-label>
+        <ion-checkbox [(ngModel)]="enableCalendarEvents"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Enable Installed apps data collection</ion-label>
+        <ion-checkbox [(ngModel)]="enableInstalledApps"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Enable Browser History data collection</ion-label>
+        <ion-checkbox [(ngModel)]="enableBrowserHistory"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Enable Location Data collection</ion-label>
+        <ion-checkbox [(ngModel)]="enableLocationData"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Enable Battery Charge info data collection</ion-label>
+        <ion-checkbox [(ngModel)]="enableBatterycharge"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Enable Gallery Meta data collection</ion-label>
+        <ion-checkbox [(ngModel)]="enableGalleryMetaData"></ion-checkbox>
+      </ion-item>
+  </ion-list>
+  <ion-list>
+      <ion-list-header>
+          SMS Message content
+      </ion-list-header>
+      <ion-item>
+          <ion-label>Enable SMS body data collection</ion-label>
+          <ion-checkbox [(ngModel)]="enableSMSbody"></ion-checkbox>
+        </ion-item>
+  </ion-list>
+  <ion-list>
+      <ion-list-header>
+          Data Hashing
+      </ion-list-header>
+      <ion-item>
+          <ion-label>Enable Phone Number Hashing</ion-label>
+          <ion-checkbox [(ngModel)]="enablePhoneNumberHashing"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Enable Contacts Name Hashing</ion-label>
+          <ion-checkbox [(ngModel)]="enableContactsNameHashing"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Enable Contacts Email Hashing</ion-label>
+          <ion-checkbox [(ngModel)]="enableContactsEmailHashing"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Enable Calendar Organizer Hashing (Email)</ion-label>
+          <ion-checkbox [(ngModel)]="enableCalendarOrganizerHashing"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Enable Calendar Display Name Hashing</ion-label>
+          <ion-checkbox [(ngModel)]="enableCalendarDisplayNameHashing"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Enable Calendar Email Hashing</ion-label>
+          <ion-checkbox [(ngModel)]="enableCalendarEmailHashing"></ion-checkbox>
+        </ion-item>
+  </ion-list>
+  <button (click)="startLenddo()" [disabled]="hasStatistics || disableStartButton" ion-button>Start Data Collection</button>
+  <button (click)="clearLenddo()" ion-button color="danger" [disabled]="!hasStatistics && !stopButtonEnabled">Stop</button>
+  <div *ngIf="hasStatistics">
+    <ion-card>
+      <ion-card-header>
+        Data Status
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label>Application ID: {{currentApplicationId}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Device ID: {{currentDeviceId}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Service Token: {{currentServiceToken}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Installation ID: {{currentInstallationId}} </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Upload Mode: {{uploadMode}} </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Data Sending Callback: {{dataSendingCallback}} </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
