@@ -8,13 +8,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ScoringTabComponent } from '../components/scoring-tab/scoring-tab';
 import { VerificationTabComponent } from '../components/verification-tab/verification-tab';
+import { OnboardingTabComponent } from '../components/onboarding-tab/onboarding-tab';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ScoringTabComponent,
-    VerificationTabComponent
+    VerificationTabComponent,
+    OnboardingTabComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { VerificationTabComponent } from '../components/verification-tab/verific
     MyApp,
     HomePage,
     ScoringTabComponent,
-    VerificationTabComponent
+    VerificationTabComponent,
+    OnboardingTabComponent
   ],
   providers: [
     StatusBar,

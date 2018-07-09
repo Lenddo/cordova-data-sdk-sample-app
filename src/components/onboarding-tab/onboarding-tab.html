@@ -1,0 +1,140 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Onboarding</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>Application ID</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Reference Number</ion-label>
+          <ion-input [(ngModel)]="referenceNumber"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Application JSON Payload</ion-label>
+          <ion-textarea [(ngModel)]="applicationJsonPayload"></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>Personal Info</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>First Name</ion-label>
+          <ion-input [(ngModel)]="firstName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Middle Name</ion-label>
+          <ion-input [(ngModel)]="middleName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Last Name</ion-label>
+          <ion-input [(ngModel)]="lastName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Date of Birth</ion-label>
+          <ion-datetime [(ngModel)]="dateOfBirth"></ion-datetime>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>Contact Info</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Mobile Phone</ion-label>
+          <ion-input [(ngModel)]="mobilePhone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Home Phone</ion-label>
+          <ion-input [(ngModel)]="mobilePhone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Employer</ion-label>
+          <ion-input [(ngModel)]="employer"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>University</ion-label>
+          <ion-input [(ngModel)]="university"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>Mother's Maiden Name</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>First Name</ion-label>
+          <ion-input [(ngModel)]="motherFirstName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Middle Name</ion-label>
+          <ion-input [(ngModel)]="motherMiddleName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Last Name</ion-label>
+          <ion-input [(ngModel)]="motherLastName"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>Address</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Line 1</ion-label>
+          <ion-input [(ngModel)]="line1"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Line 2</ion-label>
+          <ion-input [(ngModel)]="line2"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>City</ion-label>
+          <ion-input [(ngModel)]="city"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Administrative Division</ion-label>
+          <ion-input [(ngModel)]="administrativeDivision"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Country</ion-label>
+          <ion-input [(ngModel)]="country"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Postal Code</ion-label>
+          <ion-input [(ngModel)]="postalCode"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>Geolocation</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Latitude</ion-label>
+          <ion-input [(ngModel)]="latitude"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Longitude</ion-label>
+          <ion-input [(ngModel)]="longitude"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <button (click)="startLenddoOnboarding()" [disabled]="disableStartOnboardingButton" ion-button>
+    Start Lenddo Onboarding
+  </button>
+</ion-content>
