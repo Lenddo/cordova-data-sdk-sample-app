@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>sample</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <name>LenddoEFL Cordova App</name>
+    <description>An awesome LenddoEFL Ionic/Cordova Android App.</description>
+    <author email="mobile.team@lenddoefl.com" href="https://lenddo.com/">LenddoEFL Mobile Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -43,6 +43,10 @@
         <custom-config-file parent="./application" target="AndroidManifest.xml">
           <meta-data android:name="partnerScriptId" android:value="PARTNER_SCRIPT_ID" />
           <meta-data android:name="partnerApiSecret" android:value="API_SECRET" />
+        </custom-config-file>
+        <custom-config-file parent="/*" target="AndroidManifest.xml">
+            <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="26" />
+            <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true" />
         </custom-config-file>
         <hook src="scripts/overwriteMainActivity.sh" type="before_build" />
     </platform>
@@ -92,7 +96,7 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-android-permissions" spec="^1.0.0" />
     <plugin name="cordova-plugin-statusbar" spec="^2.3.0" />
-    <plugin name="cordova-plugin-lenddo" spec="/Users/neilmosca/Documents/Android Applications/GitHub Repo/cordova-data-sdk" />
     <plugin name="cordova-custom-config" spec="^5.0.2" />
+    <plugin name="cordova-plugin-lenddo" spec="/Users/neilmosca/Documents/Android Applications/GitHub Repo/cordova-data-sdk" />
     <engine name="android" spec="7.1.0" />
 </widget>

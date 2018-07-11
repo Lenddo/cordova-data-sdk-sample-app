@@ -78,7 +78,7 @@ export class VerificationTabComponent {
     applicationPartnerData.verification_data.address.latitude = self.latitude;
     applicationPartnerData.verification_data.address.longitude = self.longitude;
 
-    this.service.setupIfNeeded(new ClientOptions).then(()=>{ 
+    this.service.setupDataIfNeeded(new ClientOptions).then(()=>{
       return this.service.submitApplicationData(applicationPartnerData)
     }).then(function (status) {
       self.toastCtrl.create({ message: "Application Sent"}).present();

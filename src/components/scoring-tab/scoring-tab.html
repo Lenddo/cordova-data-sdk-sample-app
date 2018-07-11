@@ -111,8 +111,8 @@
           <ion-checkbox [(ngModel)]="enableCalendarEmailHashing"></ion-checkbox>
         </ion-item>
   </ion-list>
-  <button (click)="startLenddo()" [disabled]="hasStatistics || disableStartButton" ion-button>Start Data Collection</button>
-  <button (click)="clearLenddo()" ion-button color="danger" [disabled]="!hasStatistics && !stopButtonEnabled">Stop</button>
+  <button (click)="startData()" [disabled]="hasStatistics || disableStartButton" ion-button>Start Data Collection</button>
+  <button (click)="clearData()" ion-button color="danger" [disabled]="!hasStatistics && !stopButtonEnabled">Stop</button>
   <div *ngIf="hasStatistics">
     <ion-card>
       <ion-card-header>

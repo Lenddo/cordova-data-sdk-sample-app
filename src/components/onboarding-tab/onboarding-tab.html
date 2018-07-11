@@ -52,15 +52,23 @@
         </ion-item>
         <ion-item>
           <ion-label>Home Phone</ion-label>
-          <ion-input [(ngModel)]="mobilePhone"></ion-input>
+          <ion-input [(ngModel)]="homePhone"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Email</ion-label>
           <ion-input [(ngModel)]="email"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Employer</ion-label>
-          <ion-input [(ngModel)]="employer"></ion-input>
+        <ion-label>Employer</ion-label>
+        <ion-input [(ngModel)]="employer"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Employment start date</ion-label>
+          <ion-datetime [(ngModel)]="employmentStartDate"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Employment end date</ion-label>
+          <ion-datetime [(ngModel)]="employmentEndDate"></ion-datetime>
         </ion-item>
         <ion-item>
           <ion-label>University</ion-label>
@@ -111,6 +119,10 @@
         <ion-item>
           <ion-label>Country</ion-label>
           <ion-input [(ngModel)]="country"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Country Code</ion-label>
+          <ion-input [(ngModel)]="countryCode"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Postal Code</ion-label>
