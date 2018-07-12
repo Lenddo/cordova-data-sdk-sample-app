@@ -93,20 +93,20 @@ export class ScoringTabComponent implements DataSendingCallback {
     }
   }
 
-  startLenddo() {
+  startData() {
     var self = this;
     if (self.applicationId !== null && self.applicationId !== "") {
       let toast = self.toastCtrl.create({message: 'Data SDK Collection Starting ...', showCloseButton: true});
       toast.present();
       self.disableStartButton = true;
       self.stopButtonEnabled = true;
-      
+
       self.service.setDataSendingCompleteCallback(self); //register global error handlers for data sending
 
-      self.service.setup(this.setupOptions()).then(()=> {
+      self.service.setupData(this.setupOptions()).then(()=> {
         self.hasStatistics = true;
         self.dataSendingCallback = "process currently running";
-        return this.service.start(self.applicationId).then((param) => {
+        return this.service.startData(self.applicationId).then((param) => {
             toast.dismiss();
             self.toastCtrl.create({ message: "Data SDK successfully started", duration: 2000, showCloseButton: true}).present();
             return this.service.hasStatistics();
@@ -114,7 +114,7 @@ export class ScoringTabComponent implements DataSendingCallback {
             self.hasStatistics = value;
             self.populateInfo(value)
           })
-      }).catch((message) => { 
+      }).catch((message) => {
         toast.dismiss();
         self.dataSendingCallback = "Failed";
         self.toastCtrl.create({ message: "Error: " + message.message, showCloseButton: true }).present();
@@ -134,7 +134,7 @@ export class ScoringTabComponent implements DataSendingCallback {
     console.log("error: " + result);
   }
 
-  clearLenddo() {
+  clearData() {
     this.service.clear();
     this.hasStatistics = false; this.populateInfo(false);
     this.stopButtonEnabled = false;
