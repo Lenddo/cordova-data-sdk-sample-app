@@ -94,6 +94,7 @@ export class OnboardingTabComponent implements OnboardingCallback {
     var formDataCollector = new FormDataCollector();
     formDataCollector.applicationId = this.referenceNumber;
     formDataCollector.verification_data = verification_data;
+    formDataCollector.partnerScriptId = 'YOUR_PARTNER_SCRIPT_ID';
 
     var cancelDialogText = new CancelDialogText();
     cancelDialogText.title = "Ayaw mo na?";

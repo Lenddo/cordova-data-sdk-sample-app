@@ -157,6 +157,7 @@ export class ScoringTabComponent implements DataSendingCallback {
 
   private setupOptions(): ClientOptions {
     let options = new ClientOptions;
+    options.setPartnerScriptId('YOUR_PARTNER_SCIRPT_ID');
 
     if (this.dataMode === 'wifi_and_mobile') {
       options.setWifiOnly(true);
