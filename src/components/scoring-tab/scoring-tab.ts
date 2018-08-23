@@ -31,6 +31,15 @@ export class ScoringTabComponent implements DataSendingCallback {
   enableLocationData: Boolean = true;
   enableBatterycharge: Boolean = true;
   enableGalleryMetaData: Boolean = true;
+  enableTelephonyData: Boolean = true;
+  enableStoreFilesData: Boolean = true;
+  enableSensorsData: Boolean = true;
+  enableLaunchersData: Boolean = true;
+  enableWifiData: Boolean = true;
+  enableBluetoothData: Boolean = true;
+  enableAccountsData: Boolean = true;
+  enableGmailLabelsData: Boolean = true;
+  enablePeriodicalDataGathering: Boolean = true;
   enableSMSbody: Boolean = false;
 
   //Hashing
@@ -149,6 +158,7 @@ export class ScoringTabComponent implements DataSendingCallback {
 
   private setupOptions(): ClientOptions {
     let options = new ClientOptions;
+    options.setPartnerScriptId('YOUR_PARTNER_SCIRPT_ID');
 
     if (this.dataMode === 'wifi_and_mobile') {
       options.setWifiOnly(true);
@@ -186,6 +196,42 @@ export class ScoringTabComponent implements DataSendingCallback {
 
     if (!this.enableGalleryMetaData) {
       options.setDisableGalleryMetaData(true);
+    }
+
+    if (!this.enableTelephonyData) {
+      options.setDisableTelephonyData(true);
+    }
+
+    if (!this.enableStoreFilesData) {
+      options.setDisableStoredFilesData(true);
+    }
+
+    if (!this.enableSensorsData) {
+      options.setDisableSensorsData(true);
+    }
+
+    if (!this.enableLaunchersData) {
+      options.setDisableLaunchersData(true);
+    }
+
+    if (!this.enableWifiData) {
+      options.setDisableWifiData(true);
+    }
+
+    if (!this.enableBluetoothData) {
+      options.setDisableBluetoothData(true);
+    }
+
+    if (!this.enableAccountsData) {
+      options.setDisableAccountsData(true);
+    }
+
+    if (!this.enableGmailLabelsData) {
+      options.setDisableGmailLabelsData(true);
+    }
+
+    if (!this.enablePeriodicalDataGathering) {
+      options.setDisablePeriodicalDataGathering(true);
     }
 
     if (!this.enableSMS) {
