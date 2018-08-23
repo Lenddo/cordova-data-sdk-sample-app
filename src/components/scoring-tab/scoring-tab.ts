@@ -39,6 +39,7 @@ export class ScoringTabComponent implements DataSendingCallback {
   enableBluetoothData: Boolean = true;
   enableAccountsData: Boolean = true;
   enableGmailLabelsData: Boolean = true;
+  enablePeriodicalDataGathering: Boolean = true;
   enableSMSbody: Boolean = false;
 
   //Hashing
@@ -227,6 +228,10 @@ export class ScoringTabComponent implements DataSendingCallback {
 
     if (!this.enableGmailLabelsData) {
       options.setDisableGmailLabelsData(true);
+    }
+
+    if (!this.enablePeriodicalDataGathering) {
+      options.setDisablePeriodicalDataGathering(true);
     }
 
     if (!this.enableSMS) {
